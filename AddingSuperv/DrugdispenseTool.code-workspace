@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../Adding Patients"
+		},
+		{
+			"path": "../Adding Doctors"
+		},
+		{
+			"path": "../AddingPharmacy"
+		},
+		{
+			"path": "../AddingPharComp"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../General Login"
+		}
+	],
+	"settings": {}
+}

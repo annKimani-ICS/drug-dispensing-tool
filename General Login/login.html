@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>General Login</title>
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+        <h2>Please login to continue</h2>
+        <form action="login.php" method="post" autocomplete="on">
+            <label for="login">Login as:</label>
+            <form>
+                <label for="userType">Login as:</label>
+                <select id="userType" name="userType">
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="pharmacy">Pharmacy</option>
+                    <option value="pharcomp">Pharmaceutical Company</option>
+                    <option value="supervisor">Supervisor</option>
+                </select>
+                <br><br>
+                <input type="button" value="Login" onclick="login()">
+                <input type="button" value="Cancel">
+            </form>
+
+<script>
+function login() {
+  var userType = document.getElementById("userType").value;
+  if (userType == "patient") {
+    window.location.href = "patientlogin.html";
+  } else if (userType == "doctor") {
+    window.location.href = "doctorlogin.html";
+  } else if (userType == "pharmacy") {
+    window.location.href = "pharmacylogin.html";
+  } else if (userType == "pharcomp") {
+    window.location.href = "pharcomplogin.html";
+  } else if (userType == "supervisor") {
+    window.location.href = "supervisorlogin.html";
+  } else {
+    alert("Please select a user type");
+  }
+}
+</script>
+    </body>
+
+
+
+</html>
