@@ -21,4 +21,3 @@ echo "Connected successfuly";
 
 
 ?>
-.
