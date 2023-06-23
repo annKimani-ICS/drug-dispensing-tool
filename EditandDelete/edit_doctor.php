@@ -3,7 +3,7 @@ require_once("connect.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Retrieve doctor's ID from the submitted form
-    $patient_nat_ID = $_POST['doc_hos_id'];
+    $doc_hos_id = $_POST['doc_hos_id'];
 
     // Retrieve the patient's information from the database
     $query = "SELECT * FROM tbldoctor WHERE doc_hos_id = ?";
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
-    // Display a form to edit the patient's information
+    // Display a form to edit the doctor's information
     if ($row) {
         ?>
         <form action="update_doctor.php" method="POST">
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="doc_name">Doctor Name:</label>
             <input type="text" name="doc_name" value="<?php echo $row['doc_name']; ?>"><br>
             <label for="doc_password">Password:</label>
-            <input type="password" name="doc_name" value="<?php echo $row['doc_name']; ?>"><br>
+            <input type="password" name="doc_password" value="<?php echo $row['doc_password']; ?>"><br>
             <input type="submit" value="Update">
         </form>
         <?php

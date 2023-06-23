@@ -7,7 +7,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page number
 $offset = ($page - 1) * $recordsPerPage; // Calculate the offset for the database query
 
 // Retrieve total number of records
-$totalRecordsQuery = "SELECT COUNT(*) AS total FROM tbldoctor";
+$totalRecordsQuery = "SELECT COUNT(*) AS total FROM pharcomp";
 $totalRecordsResult = $conn->query($totalRecordsQuery);
 $totalRecords = $totalRecordsResult->fetch_assoc()['total']; // Get the total number of records
 
@@ -15,9 +15,10 @@ $totalRecords = $totalRecordsResult->fetch_assoc()['total']; // Get the total nu
 $totalPages = ceil($totalRecords / $recordsPerPage); // Calculate the total number of pages based on the total records and records per page
 
 // Retrieve limited records for the current page
-$sql = "SELECT * FROM tbldoctor LIMIT $offset, $recordsPerPage";
+$sql = "SELECT * FROM pharcomp LIMIT $offset, $recordsPerPage";
 $result = $conn->query($sql); // Execute the database query to retrieve the records for the current page
 //Display the table of records next
+
 ?>
 
 <style>
@@ -34,25 +35,24 @@ $result = $conn->query($sql); // Execute the database query to retrieve the reco
 </style>
 <table>
     <tr>
-        <th>Doctor Hos ID</th>
-        <th>Doctor Name</th>
+        <th>Pharmaceautical company name:</th>
         <th>Password</th>
         <th>Actions</th>
     </tr>
 </table>
 
+
 <?php while ($row = $result->fetch_assoc()) : ?>
     <tr>
-        <td><?php echo $row['doc_hos_ID']; ?></td>
-        <td><?php echo $row['doc_name']; ?></td>
-        <td><?php echo $row['doc_password']; ?></td>
+        <td><?php echo $row['phar_comp_name']; ?></td>
+        <td><?php echo $row['pharcomp_pass']; ?></td>
         <td>
-            <form action="edit_doctor.php" method="POST">
-                <input type="hidden" name="doc_hos_id" value="<?php echo $row['doc_hos_id']; ?>">
+            <form action="edit_pharcomp.php" method="POST">
+                <input type="hidden" name="phar_comp_name" value="<?php echo $row['phar_comp_name']; ?>">
                 <input type="submit" value="Edit">
             </form>
-            <form action="delete_doctor.php" method="POST">
-                    <input type="hidden" name="doc_hos_id" value="<?php echo $row['doc_hos_id']; ?>">
+            <form action="delete_pharcomp.php" method="POST">
+                    <input type="hidden" name="phar_comp_name" value="<?php echo $row['phar_comp_name']; ?>">
                     <input type="submit" value="Delete">
             </form>
         </td>
@@ -60,7 +60,7 @@ $result = $conn->query($sql); // Execute the database query to retrieve the reco
 <?php endwhile; ?>
 </table>
 
-<?php if($totalPages < 1) : ?>
+<?php if ($totalPages < 1) : ?>
     <div>
     <?php if ($page > 1): ?>
             <a href="?page=<?php echo ($page - 1); ?>">Previous</a>
