@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "../General Login"
+		},
+		{
+			"path": "../EditandDelete"
 		}
 	],
 	"settings": {}
