@@ -4,15 +4,15 @@ require_once("connect.php");
 $P_nat_id = $_POST['patient_nat_ID'];
 $P_name = $_POST['patient_name'];
 $P_address = $_POST['patient_address'];
-$P_dob = $_POST['patient_dob'];
+$P_age = $_POST['patient_age'];
 $P_phone = $_POST['patient_phone'];
 $P_email = $_POST['patient_email'];
 $P_order = $_POST['order_no'];
 $P_doc = $_POST['doc_hos_id'];
 $P_password = $_POST['patient_password'];
 
-$insert_sql = "INSERT INTO `tblpatient`(`patient_nat_ID`, `patient_name`, `patient_address`, `patient_dob`, `patient_phone`, `patient_email`, `order_id`, `doc_hos_id`, `patient_password`) 
-VALUES ('$P_nat_id','$P_name','$P_address','$P_dob','$P_phone','$P_email','$P_order','$P_doc','$P_password')";
+$insert_sql = "INSERT INTO `tblpatient`(`patient_nat_ID`, `patient_name`, `patient_address`, `patient_age`, `patient_phone`, `patient_email`, `order_id`, `doc_hos_id`, `patient_password`) 
+VALUES ('$P_nat_id','$P_name','$P_address','$P_age','$P_phone','$P_email','$P_order','$P_doc','$P_password')";
 
 if($conn->query($insert_sql) === TRUE)
 {
