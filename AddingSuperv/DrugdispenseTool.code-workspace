@@ -4,9 +4,6 @@
 			"path": "../Adding Patients"
 		},
 		{
-			"path": "../Adding Doctors"
-		},
-		{
 			"path": "../AddingPharmacy"
 		},
 		{
@@ -20,7 +17,18 @@
 		},
 		{
 			"path": "../EditandDelete"
+		},
+		{
+			"path": "../homepage"
+		},
+		{
+			"path": "../loginpage"
+		},
+		{
+			"path": "../AddingDoctors"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "homepage"
+	}
 }

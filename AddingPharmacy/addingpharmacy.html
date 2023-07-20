@@ -1,29 +1,62 @@
 <html>
 
-  <form action="addPharmacy.php" method="post" autocomplete="on">
-  <label for="pharmacy_name">Pharmacy Name:</label>
-  <input type="text" id="pharmacy_name" name="pharmacy_name"><br><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacist Sign Up</title>
+    <link rel="stylesheet" href="style3.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
 
-   <label for="pharmacy_phone_no">Pharmacy Phone Number:</label>
-  <input type="text" id="pharmacy_phone_no" name="pharmacy_phone_no"><br><br>
+<body>
+  <div class="wrapper">
+    <h1>Pharmacist Sign Up</h1>
+    <form action="addPharmacy.php" method="POST"  autocomplete = "off" enctype="multipart/form-data" autofocus >
+        <div class="input-box">
+          <input type="text" id="pharmacy_name" name="pharmacy_name" placeholder="Pharmacy Name"required>
+          <i class='bx bx-plus-medical'></i>
+        </div>
 
-  <label for="pharma_drug_price">Pharmacy Drug price:</label>
-  <input type="text" id="pharma_drug_price" name="pharma_drug_price"><br><br>
+        <div class="input-box">
+          <input type="text" id="pharmacy_phone_no" name="pharmacy_phone_no" placeholder="Phone Number" required>
+          <i class='bx bxs-phone-call'></i>
+        </div>
 
-  <label for="pharmacy_stock">Pharmacy stock:</label>
-  <input type="text" id="pharmacy_stock" name="pharmacy_stock"><br><br>
+        <div class="input-box">
+          <input type="text" id="pharma_drug_price" name="pharma_drug_price" placeholder="Drug price" required>
+          <i class='bx bx-money'></i>
+        </div>
 
-  <label for="contract_id">Contract Id:</label>
-  <input type="text" id="contract_id" name="contract_id"><br><br>
+        <div class="input-box">
+          <input type="text" id="pharmacy_stock" name="pharmacy_stock" placeholder="Stock" required>
+          <i class='bx bxl-stack-overflow'></i>
+        </div>
 
-  <label for="drug_trade_name">Drug Trade Name:</label>
-  <input type="text" id="drug_trade_namek" name="drug_trade_name"><br><br>
+        <div class="input-box">
+          <input type="text" id="contract_id" name="contract_id" placeholder="Contract id" required>
+          <i class='bx bx-paperclip'></i>
+        </div>
 
-  <label for="pharmacy_password">Enter Password: </label>
-  <input type="password" id="pharmacy_password" name="pharmacy_password"><br><br>
+        <div class="input-box">
+          <input type="text" id="drug_trade_name" name="drug_trade_name" placeholder="Drug name" required>
+          <i class='bx bxs-capsule'></i>
+        </div>
 
-  <input type="submit" value="Submit">
+        <div class="input-box"> 
+        <input type="password" id="pharmacy_password" name="pharmacy_password" placeholder="Password" required>
+        <i class='bx bxs-key'></i>
+        </div>
+        
+        <button type="submit" class="btn" name="addPharmacy">Submit</button><br>
+        <br>
+        <button type="submit" class="btn">Cancel</button>
 
-  <input type="submit" value="Cancel">
-</form>
+        <div class="login-link">
+            <p>Already Have an account? <a href="../loginpage/index.html">Login now</a></p>
+        </div>
+      </form>
+    </form>
+  </div>
+</body>
+
 </html>

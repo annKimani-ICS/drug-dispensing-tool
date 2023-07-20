@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form html and CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="login.php" method="POST"  autocomplete = "off" enctype="multipart/form-data" autofocus>
+            <h1>Login</h1>
+            <div class="input-box">
+                <input id="username" name="username" type="text" placeholder="Username" required>
+                <i class='bx bxs-user-account'></i>
+            </div>
+            <div class="input-box">
+                <input id="password" name="password" type="password" placeholder="Password" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+
+            <div class="user_type">
+                <label for="user_type_select">Select User Type:</label>
+                <select id="user_type_select" name="user_type_select">
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="pharmacist">Pharmacist</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <!-- <div class="remember_forgot">
+                <div class="remember">
+                    <input type="checkbox" id="remember_me"  name="remember_me">
+                    <label for="remember_me">Remember me</label>
+                </div>
+                <div class="forgot">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </div>  -->
+
+            <button name="login" type="submit" class="btn">Login</button>
+
+            <div class="signup-link">
+                <p>Don't have an account? <a href="#">Signup now</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

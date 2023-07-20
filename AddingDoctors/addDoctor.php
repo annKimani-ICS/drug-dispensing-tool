@@ -4,23 +4,22 @@
 
 <?php
 
-require_once("connect3.php");
+require_once("connect2.php");
 
-if (isset($_POST["addPharmacy"])){
+if (isset($_POST["addDoctor"])){
 
 
 
-    $P_pharmacy_name = mysqli_real_escape_string($conn, $_POST["pharmacy_name"]);
-    $P_pharmacy_phone_no = mysqli_real_escape_string($conn, $_POST["pharmacy_phone_no"]);
-    $P_pharma_drug_price = mysqli_real_escape_string($conn, $_POST["pharma_drug_price"]);
-    $P_pharmacy_stock = mysqli_real_escape_string($conn, $_POST["pharmacy_stock"]);
-    $P_contract_id = mysqli_real_escape_string($conn, $_POST["contract_id"]);
-    $P_drug_trade_name = mysqli_real_escape_string($conn, $_POST["drug_trade_name"]);
-    $P_pharmacy_password = mysqli_real_escape_string($conn, $_POST["pharmacy_password"]);
-    $password = $password = password_hash($P_pharmacy_password, PASSWORD_DEFAULT);
+    $P_doc_hos_id = mysqli_real_escape_string($conn, $_POST["doc_hos_id"]);
+    $P_doc_name = mysqli_real_escape_string($conn, $_POST["doc_name"]);
+    $P_doc_spec = mysqli_real_escape_string($conn, $_POST["doc_spec"]);
+    $P_doc_years = mysqli_real_escape_string($conn, $_POST["doc_years"]);
+    $P_doc_phone = mysqli_real_escape_string($conn, $_POST["doc_phone"]);
+    $P_doc_password = mysqli_real_escape_string($conn, $_POST["doc_password"]);
+    $password = $password = password_hash($P_doc_password, PASSWORD_DEFAULT);
 
-    $insert_sql = "INSERT INTO `tblpharmacy`(pharmacy_name, pharmacy_phone_no, pharma_drug_price, pharmacy_stock, contract_id, drug_trade_name, pharmacy_password)
-    VALUES ('$P_pharmacy_name','$P_pharmacy_phone_no','$P_pharma_drug_price','$P_pharmacy_stock','$P_contract_id','$P_drug_trade_name','$password')";
+    $insert_sql = "INSERT INTO `tbldoctor`(doc_hos_id, doc_name, doc_spec, doc_years, doc_phone, doc_password) 
+    VALUES ('$P_doc_hos_id','$P_doc_name','$P_doc_spec','$P_doc_years','$P_doc_phone','$password')";
     
     $worked=mysqli_query($conn,$insert_sql);
 
@@ -31,11 +30,11 @@ if (isset($_POST["addPharmacy"])){
                            $(document).ready(function(){
                              swal({
                                title: "Error!",
-                               text:Pharmacist could not be added",
+                               text:Doctor could not be added",
                                type: "error".'.mysqli_errno($conn);'
                                
                            }).then(function() {
-                            window.location = "addPharmacy.php";
+                            window.location = "addDoctor.php";
                            });
                            
                            
@@ -51,7 +50,7 @@ if (isset($_POST["addPharmacy"])){
                                       $(document).ready(function(){
                                         swal({
                                           title: "Success!",
-                                          text: "Pharmacist Added Successfuly",
+                                          text: "Doctor Added Successfuly",
                                           type: "success"
                                       }).then(function() {
                                           window.location = "index.html";
