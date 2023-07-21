@@ -1,0 +1,115 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .navbar {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 50px;
+    background-color: #fff;
+  }
+  
+  .main h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .tag {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-top: 50px;
+  }
+  
+  .grid img {
+    width: 100%;
+  }
+  
+  ul {
+    list-style: none;
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  ul li {
+    display: inline;
+    margin: 0 10px;
+  }
+  
+  ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  
+  ul li a:hover {
+    background-color: #666;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 30px;
+    }
+    
+    .main h1 {
+      font-size: 24px;
+    }
+    
+    .tag {
+      font-size: 16px;
+    }
+  }
+  
+  .copyright{
+    text-align: center;
+    position: relative;
+    top: 230px;
+  }

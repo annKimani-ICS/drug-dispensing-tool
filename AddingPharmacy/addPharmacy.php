@@ -10,17 +10,17 @@ if (isset($_POST["addPharmacy"])){
 
 
 
-    $P_pharmacy_name = mysqli_real_escape_string($conn, $_POST["pharmacy_name"]);
-    $P_pharmacy_phone_no = mysqli_real_escape_string($conn, $_POST["pharmacy_phone_no"]);
-    $P_pharma_drug_price = mysqli_real_escape_string($conn, $_POST["pharma_drug_price"]);
-    $P_pharmacy_stock = mysqli_real_escape_string($conn, $_POST["pharmacy_stock"]);
-    $P_contract_id = mysqli_real_escape_string($conn, $_POST["contract_id"]);
-    $P_drug_trade_name = mysqli_real_escape_string($conn, $_POST["drug_trade_name"]);
-    $P_pharmacy_password = mysqli_real_escape_string($conn, $_POST["pharmacy_password"]);
-    $password = $password = password_hash($P_pharmacy_password, PASSWORD_DEFAULT);
+    $P_pharmacy_name = $_POST["pharmacy_name"];
+    $P_pharmacy_phone_no =  $_POST["pharmacy_phone_no"];
+    $P_pharma_drug_price =  $_POST["pharma_drug_price"];
+    $P_pharmacy_stock =  $_POST["pharmacy_stock"];
+    $P_contract_id =  $_POST["contract_id"];
+    $P_drug_trade_name =  $_POST["drug_trade_name"];
+    $P_pharmacy_password = $_POST["pharmacy_password"];
+  
 
     $insert_sql = "INSERT INTO `tblpharmacy`(pharmacy_name, pharmacy_phone_no, pharma_drug_price, pharmacy_stock, contract_id, drug_trade_name, pharmacy_password)
-    VALUES ('$P_pharmacy_name','$P_pharmacy_phone_no','$P_pharma_drug_price','$P_pharmacy_stock','$P_contract_id','$P_drug_trade_name','$password')";
+    VALUES ('$P_pharmacy_name', $P_pharmacy_phone_no, $P_pharma_drug_price, $P_pharmacy_stock, $P_contract_id, '$P_drug_trade_name', $P_pharmacy_password)";
     
     $worked=mysqli_query($conn,$insert_sql);
 

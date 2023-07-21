@@ -10,16 +10,16 @@ if (isset($_POST["addDoctor"])){
 
 
 
-    $P_doc_hos_id = mysqli_real_escape_string($conn, $_POST["doc_hos_id"]);
-    $P_doc_name = mysqli_real_escape_string($conn, $_POST["doc_name"]);
-    $P_doc_spec = mysqli_real_escape_string($conn, $_POST["doc_spec"]);
-    $P_doc_years = mysqli_real_escape_string($conn, $_POST["doc_years"]);
-    $P_doc_phone = mysqli_real_escape_string($conn, $_POST["doc_phone"]);
-    $P_doc_password = mysqli_real_escape_string($conn, $_POST["doc_password"]);
-    $password = $password = password_hash($P_doc_password, PASSWORD_DEFAULT);
+    $P_doc_hos_id = $_POST["doc_hos_id"];
+    $P_doc_name =  $_POST["doc_name"];
+    $P_doc_spec =  $_POST["doc_spec"];
+    $P_doc_years = $_POST["doc_years"];
+    $P_doc_phone = $_POST["doc_phone"];
+    $P_doc_password = $_POST["doc_password"];
+
 
     $insert_sql = "INSERT INTO `tbldoctor`(doc_hos_id, doc_name, doc_spec, doc_years, doc_phone, doc_password) 
-    VALUES ('$P_doc_hos_id','$P_doc_name','$P_doc_spec','$P_doc_years','$P_doc_phone','$password')";
+    VALUES ($P_doc_hos_id,'$P_doc_name','$P_doc_spec',$P_doc_years, $P_doc_phone,'$P_doc_password')";
     
     $worked=mysqli_query($conn,$insert_sql);
 

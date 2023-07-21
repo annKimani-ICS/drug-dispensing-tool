@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up link page</title>
+    <link rel="stylesheet" type="text/css" href="signup.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="wrapper">
+        <form action="/drug.dispensing.tool/drug-dispensing-tool/loginpage/signup.php" method="POST"  autocomplete = "off" enctype="multipart/form-data" autofocus>
+            <h1>Sign Up</h1>
+            <div class ="user_type">
+                <label for="entity">Select User Type:</label>
+                <select id="entity" name="entity" >
+                    <option value="">Select</option>
+                    <option value="patient">Patient</option>
+                    <option value="doctor">Doctor</option>  
+                    <option value="pharmacist">Pharmacist</option>
+                    <option value="admin">Admin</option>
+                </select>
+        </div>
+        <input type="submit" class="btn" name="signup">
+        </form>
+
+    <!-- <button type="submit" class="btn"  name="signup">Submit</button><br> -->
+
+    </div>
+
+</body>
+</html>

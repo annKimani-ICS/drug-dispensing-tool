@@ -7,14 +7,14 @@ require_once "connect2.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Retrieve prescription details from the form
-    $patientID = $_POST["patient_nat_ID"]; // Corrected field name here
-    $drugName = $_POST["drug_trade_name"];
-    $dosage = $_POST["pres_dosage"];
-    $form = $_POST["pres_form"];
-    $amount = $_POST["pres_amount"];
+    $patientID = $_POST['patient_nat_ID']; // Corrected field name here
+    $drugName = $_POST['drug_trade_name'];
+    $dosage = $_POST['pres_dosage'];
+    $form = $_POST['pres_form'];
+    $amount = $_POST['pres_amount'];
 
     $sql = "INSERT INTO tblprescription (patient_nat_ID, drug_trade_name, pres_dosage, pres_form, pres_amount) 
-    VALUES ($patientID, $drugName, $dosage, $form, $amount)";
+    VALUES ($patientID, '$drugName', '$dosage', '$form', $amount)";
 
     $worked=mysqli_query($conn,$sql);
 

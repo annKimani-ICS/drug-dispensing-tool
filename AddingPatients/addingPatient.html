@@ -1,0 +1,69 @@
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patient Sign up</title>
+        <link rel="stylesheet" href="style2.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Patient's Sign Up</h1>
+        <form action="addPatient.php" method="POST"  autocomplete = "off" enctype="multipart/form-data" autofocus >
+            <div class="input-box">
+               <input type="text" id="patient_nat_ID" name="patient_nat_ID" placeholder="Patient's National id" required>
+               <i class='bx bx-id-card'></i>
+            </div>
+
+            <div class="input-box">
+               <input type="text" id="patient_name" name="patient_name" placeholder="Patient Name" required>
+               <i class='bx bx-plus-medical' ></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="patient_address" name="patient_address" placeholder="Patient's Address" required> 
+                <i class='bx bx-plus-medical' ></i>
+            </div>
+    
+            <div class="input-box">
+                <input typr="text" id="patient_age" name="patient_age" placeholder="Patient's age" required>
+                <i class='bx bx-calendar'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="patient_phone" name="patient_phone" placeholder="Patient Phone no" required>
+                <i class='bx bx-phone'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="patient_email" name="patient_email" placeholder="Patient Email Contact" required>
+                <i class='bx bx-phone'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="doc_hos_id" name="doc_hos_id" placeholder="Doctor's Hospital ID" required>
+                <i class='bx bx-phone'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="patient_password" name="patient_password" placeholder="Patient's Password" required>
+                <i class='bx bx-phone'></i>
+            </div>
+
+            <button type="submit" class="btn"  name="addPatient">Submit</button><br>
+            <br>
+            <button type="submit" class="btn" name="">Cancel</button>
+
+            <div class="login-link">
+                <p>Already Have an account? <a href="../loginpage/login.php">Login now</a></p>
+            </div>
+
+
+        </form>
+       
+    </div>
+</body>
+
+</html>

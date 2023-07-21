@@ -1,0 +1,6 @@
+23:44:22	 From  151344 Mbindyo Ryan Kyalo : After code just register the two
+23:47:17	 From  151344 Mbindyo Ryan Kyalo : Register doctor sasa
+23:49:02	 From  151344 Mbindyo Ryan Kyalo : After kuonyesha kwa db, register pharmacist
+23:52:00	 From  151344 Mbindyo Ryan Kyalo : Login kama doctor
+23:52:27	 From  151344 Mbindyo Ryan Kyalo : Search for patient1
+23:52:47	 From  151344 Mbindyo Ryan Kyalo : Prescribe drug to patient

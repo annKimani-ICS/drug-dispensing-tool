@@ -1,9 +1,6 @@
 {
 	"folders": [
 		{
-			"path": "../Adding Patients"
-		},
-		{
 			"path": "../AddingPharmacy"
 		},
 		{
@@ -29,6 +26,9 @@
 		},
 		{
 			"path": "../adminpage"
+		},
+		{
+			"path": "../AddingPatients"
 		}
 	],
 	"settings": {
