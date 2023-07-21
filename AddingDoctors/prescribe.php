@@ -1,53 +1,157 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
 <?php
+// The PHP code in prescribe.php
+require_once "connect2.php";
 
-//OOP METHOD
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "dbdrugtool";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Retrieve prescription details from the form
+    $patientID = $_POST["patient_nat_ID"]; // Corrected field name here
+    $drugName = $_POST["drug_trade_name"];
+    $dosage = $_POST["pres_dosage"];
+    $form = $_POST["pres_form"];
+    $amount = $_POST["pres_amount"];
 
-// Establish a database connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+    $sql = "INSERT INTO tblprescription (patient_nat_ID, drug_trade_name, pres_dosage, pres_form, pres_amount) 
+    VALUES ($patientID, $drugName, $dosage, $form, $amount)";
 
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    $worked=mysqli_query($conn,$sql);
+
+
+    if (!$worked) {
+        echo '
+                           <script type="text/javascript">
+                           
+                           $(document).ready(function(){
+                             swal({
+                               title: "Error!",
+                               text:Prescription could not be added, please try again",
+                               type: "error".'.mysqli_errno($conn);'
+                               
+                           }).then(function() {
+                            window.location = "index.html";
+                           });
+                           
+                           
+                           });
+                           
+                           </script>
+                           ';
+                        }
+                           else{
+                            echo '
+                            <script type="text/javascript">
+                            
+                            $(document).ready(function(){
+                              swal({
+                                title: "Success!",
+                                text: "Prescription Added Successfuly, Awaiting Approval",
+                                type: "success"
+                            }).then(function() {
+                                window.location = "index.html";
+                            });
+                            
+                            
+                            });
+                            
+                            </script>
+                            ';
+
 }
+    // Perform validation and data processing as needed
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $drug_trade_name = $_POST["drug_trade_name"];
-    $pres_amount = $_POST["pres_amount"];
-    $pres_form = $_POST["pres_form"];
-    $pres_dosage = $_POST["pres_dosage"];
-    $patient_id = $_POST["patient_id"];
+    // Check if the patient with the provided patient_nat_ID exists in the tblpatient table
 
-    // Check if the patient exists in the database using prepared statement
-    $query = "SELECT * FROM tblpatient WHERE patient_nat_id = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $patient_id);
+    // Function to check if the patient exists in the database
+    // Function to check if the patient exists in the database
+    function checkPatientExists($patientID) {
+    global $conn;
+
+    // Check the database connection
+    if (!$conn) {
+        die("Database connection failed: " . mysqli_connect_error());
+    }
+
+    // Execute the query
+    $sql = "SELECT patient_nat_ID FROM tblpatient WHERE patient_nat_ID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $patientID);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        // The patient is registered, proceed with the prescription insertion
-        // Perform an SQL INSERT query to store the prescription in the database
-        $sql = "INSERT INTO `tblprescription`(drug_trade_name, pres_amount, pres_form, pres_dosage, patient_id) 
-        VALUES ('$drug_trade_name','$pres_amount','$pres_dosage','$patient_id')";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssi", $drug_trade_name, $pres_amount, $pres_form, $pres_dosage, $patient_id);
+    // Debugging: Check if the query is executed correctly
+    if (!$result) {
+        die("Query execution failed: " . $conn->error);
+    }
 
-        if ($stmt->execute()) {
-            echo "Prescription added successfully!";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
+    // Debugging: Check the number of rows returned
+    echo "Number of rows: " . $result->num_rows . "<br>";
+
+    if ($result->num_rows > 0) {
+        return true; // Patient exists
     } else {
-        // The patient is not registered, show an error message or redirect back to the form
-        echo "Error: Patient is not registered.";
+        return false; // Patient not found
     }
 }
 
-// Close the prepared statement and the database connection
-$stmt->close();
-$conn->close();
+}
+
+
+    // Save the prescription details in the database and auto-generate the prescription ID
+    // $prescriptionID = savePrescriptionToDatabase($patientID, $drugName, $dosage, $form, $amount);
+
+    // // Send the prescription request to the pharmacist (you can use email, notification, or any other method)
+    // sendPrescriptionToPharmacist($prescriptionID, $patientID, $drugName, $dosage, $form, $amount);
+
+    // // Redirect the doctor to a success page or show a success message
+    // echo "Prescription request sent successfully.";
+    // exit();
+
+
+
+// Function to save prescription details in the database and auto-generate the prescription ID
+// Function to save prescription details in the database and auto-generate the prescription ID
+// Function to save prescription details in the database and auto-generate the prescription ID
+// Function to save prescription details in the database and auto-generate the prescription ID
+// function savePrescriptionToDatabase($patientID, $drugName, $dosage, $form, $amount) {
+//     // Replace this function with the code to save the prescription to the database
+//     // Ensure that the "tblprescription" table has an auto-incrementing primary key column for the prescription ID
+
+//     global $conn;
+
+//     // Prepare and execute the SQL statement to insert the prescription details
+//     $sql = "INSERT INTO tblprescription (patient_nat_ID, drug_trade_name, pres_dosage, pres_form, pres_amount) 
+//             VALUES ($patientID, $drugName, $dosage, $form, $amount)";
+//     $stmt = $conn->prepare($sql);
+//     $stmt->bind_param("sssss", $patientID, $drugName, $dosage, $form, $amount); // what is this for? That's what chat gpt gave me to 
+//     //add so that I can update the table in the database but it didn't work 
+
+//     if ($stmt->execute()) {
+//         // Get the auto-generated prescription ID
+//         $prescriptionID = $stmt->insert_id;
+//         $stmt->close();
+//         return $prescriptionID;
+//     } else {
+//         echo "Error: " . $stmt->error;
+//         // Handle the error appropriately
+//         return false;
+//     }
+// }
+
+// Function to send prescription request to the pharmacist (you need to implement this part)
+// function sendPrescriptionToPharmacist($prescriptionID, $patientID, $drugName, $dosage, $form, $amount) {
+//     // Replace this function with the code or communication method you intend to use to send the prescription to the pharmacist
+
+//     // You can use email, notification, or any other communication method
+//     // For simplicity, we'll just print the prescription details here
+
+//     echo "Prescription Request Sent to Pharmacist:<br>";
+//     echo "Prescription ID: " . $prescriptionID . "<br>";
+//     echo "Patient ID: " . $patientID . "<br>";
+//     echo "Drug Name: " . $drugName . "<br>";
+//     echo "Dosage: " . $dosage . "<br>";
+//     echo "Form: " . $form . "<br>";
+//     echo "Amount: " . $amount . "<br>";
+// }
 ?>

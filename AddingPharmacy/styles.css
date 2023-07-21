@@ -1,18 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Arial, sans-serif;
     background-image: url("https://www.psghospitals.com/wp-content/uploads/2022/08/pharmacy.jpg");
     background-size: cover;
     background-position: center;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .container {
     max-width: 800px;
-    margin: 20px auto;
-    background-color: #ffffff;
+    background: transparent;
+    border: 2px solid #ccc;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
     padding: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 30px 40px;
 }
 
 table {
@@ -22,20 +33,56 @@ table {
 }
 
 th, td {
-    border: 1px solid #dddddd;
+    border: 1px solid #180505;
     text-align: left;
     padding: 8px;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #048c91;
+}
+
+.wrapper .input-box{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 25%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 18px;
+    color: #ffff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box::placeholder{
+    color:#ffff;
+    font-size: 18px;
 }
 
 form {
     margin-top: 10px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #ffff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    color: #ffff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.5s;
 }

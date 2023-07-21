@@ -14,7 +14,7 @@
         <form action="prescribe.php" method="post" onsubmit="return validatePatient();">
             <h1>Doctor's Patient Management</h1>
             <div class="input-box">
-                <input type="text" id="patient_nat_id" name="patient_nat_id" placeholder="Patient's ID" required>
+                <input type="text" id="patient_nat_ID" name="patient_nat_ID" placeholder="Patient's ID" required>
                 <i class='bx bx-health'></i>
             </div>
 
@@ -37,21 +37,9 @@
                 <i class='bx bx-math'></i>
             </div>
                 
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn" name="prescribe">Submit</a></button>
+
         </form>
     </div>
-
-    <script>
-        function validatePatient() {
-            var patientID = document.getElementById('patient_nat_ID').value;
-            
-            if (patientID === "") {
-                return true; // The patient is registered, allow form submission
-            } else {
-                alert('Error: Patient is not registered.'); // The patient is not registered, show an error message
-                return false; // Prevent form submission
-            }
-        }
-    </script>
 </body>
 </html>
