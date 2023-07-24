@@ -29,6 +29,9 @@
 		},
 		{
 			"path": "../AddingPatients"
+		},
+		{
+			"path": "../GeneralLogin"
 		}
 	],
 	"settings": {
